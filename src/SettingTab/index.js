@@ -12,7 +12,6 @@ import zeroOrOne from '@helpers/zeroOrOne'
 
 const setTab = (isShow) => {
     console.log(`Show tab ${isShow}`)
-    console.log(TabNavigator)
 }
 
 const SettingTab: () => React$Node = () => {
