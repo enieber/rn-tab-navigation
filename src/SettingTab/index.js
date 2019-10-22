@@ -1,7 +1,3 @@
-/**
- * @flow
- */
-
 import React from 'react';
 import {
     SafeAreaView,
@@ -10,20 +6,25 @@ import {
 } from 'react-native';
 import zeroOrOne from '@helpers/zeroOrOne'
 
-const setTab = (isShow) => {
+const setTab = (props, isShow) => {
+    if  (isShow) {
+        props.navigation.navigate('TabNavigator')
+    } else {
+        props.navigation.navigate('TabNavigatorWithOptional')
+    }
     console.log(`Show tab ${isShow}`)
 }
 
-const SettingTab: () => React$Node = () => {
+const SettingTab = (props) => {
     return (
         <>
             <SafeAreaView>
                 <Text>Setting</Text>
                 <Button onPress={() => {
                     if (zeroOrOne() === 0) {
-                        setTab(false)
+                        setTab(props, false)
                     } else {
-                        setTab(true)
+                        setTab(props, true)
                     }
                 }} title="SetTabBar" />
             </SafeAreaView>
@@ -31,4 +32,4 @@ const SettingTab: () => React$Node = () => {
     );
 };
 
-export default SettingTab;
+export default SettingTab
